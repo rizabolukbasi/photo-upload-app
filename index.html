@@ -1,19 +1,21 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Fotoğraf Yükleme</title>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fotoğraf Yükleme</title>
+
+  <!-- Firebase SDK'ları -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 </head>
 <body>
-<h2>Fotoğraf Yükleme</h2>
-<input type="file" id="fileInput" accept="image/*" />
-<button id="uploadBtn">Yükle</button>
-<p id="status"></p>
-<script src="firebase.js"></script>
-<script src="upload.js"></script>
+  <h2>Fotoğraf Yükle</h2>
+  <input type="file" id="fileInput" accept="image/*" />
+  <button id="uploadBtn">Yükle</button>
+  <p id="status"></p>
+
+  <script src="firebase.js"></script>
+  <script src="upload.js"></script>
 </body>
 </html>
