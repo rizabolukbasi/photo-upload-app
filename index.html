@@ -4,30 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mehtap & Fatih'in Düğünü</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background: #fffaf7;
+      font-family: 'Open Sans', sans-serif;
+      background: url('https://www.transparenttextures.com/patterns/white-floral.png'), #fffaf7;
       text-align: center;
       padding: 50px;
     }
     h1 {
-      font-size: 2.5em;
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
       color: #b56576;
-      margin-bottom: 0.2em;
+      margin-bottom: 0.3em;
     }
     h2 {
-      font-size: 1.5em;
+      font-size: 1.4em;
       color: #6d6875;
       margin-bottom: 2em;
     }
     #uploadContainer {
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.9);
       padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
       display: inline-block;
-      max-width: 500px;
+      max-width: 550px;
       width: 100%;
     }
     input[type="file"] {
@@ -38,10 +40,11 @@
       background: #b56576;
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 12px 25px;
       font-size: 1em;
-      border-radius: 5px;
+      border-radius: 25px;
       cursor: pointer;
+      transition: background 0.3s ease;
     }
     button:hover {
       background: #8d4f5c;
@@ -52,16 +55,17 @@
       color: #333;
     }
     #gallery {
-      margin-top: 20px;
+      margin-top: 25px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
     }
     .uploadedImage {
       max-width: 150px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      border: 3px solid #f6dce1;
     }
   </style>
 </head>
