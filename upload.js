@@ -15,7 +15,7 @@ document.getElementById('uploadBtn').addEventListener('click', async () => {
   for (const file of files) {
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', 'photo-upload'); // preset adın
+    formData.append('upload_preset', 'photo-upload');
 
     try {
       const response = await fetch('https://api.cloudinary.com/v1_1/dlgw466il/image/upload', {
