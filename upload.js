@@ -16,7 +16,7 @@ document.getElementById('uploadBtn').addEventListener('click', async () => {
   status.textContent = 'Yükleniyor...';
 
   try {
-    const response = await fetch('https://api.cloudinary.com/v1_1/YOUR_CLOUD_NAME/image/upload', {
+    const response = await fetch('https://api.cloudinary.com/v1_1/dlgw466il/image/upload', {
       method: 'POST',
       body: formData
     });
