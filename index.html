@@ -3,18 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cloudinary Çoklu Fotoğraf Yükleme TEST</title>
+  <title>Mehtap & Fatih'in Düğünü</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #fffaf7;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #b56576;
+      margin-bottom: 0.2em;
+    }
+    h2 {
+      font-size: 1.5em;
+      color: #6d6875;
+      margin-bottom: 2em;
+    }
+    #uploadContainer {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: inline-block;
+    }
+    input[type="file"] {
+      margin: 15px 0;
+      font-size: 1em;
+    }
+    button {
+      background: #b56576;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #8d4f5c;
+    }
+    #status {
+      margin-top: 15px;
+      font-size: 1.1em;
+      color: #333;
+    }
+    #uploadedImage {
+      margin-top: 20px;
+      max-width: 100%;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
-  <h2>Fotoğraf Yükle</h2>
-  <input type="file" id="fileInput" accept="image/*" multiple />
-  <button id="uploadBtn">Yükle</button>
-  <p id="status"></p>
-
-  <!-- Çoklu görsel için boş bir kapsayıcı -->
-  <div id="imagePreview" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;"></div>
-
-  
+  <h1>Mehtap & Fatih'in Düğününe Hoş Geldiniz!</h1>
+  <h2>Bu özel günden fotoğraflarınızı bizimle paylaşın 💕</h2>
+  <div id="uploadContainer">
+    <input type="file" id="fileInput" accept="image/*" />
+    <br />
+    <button id="uploadBtn">Fotoğraf Yükle</button>
+    <p id="status"></p>
+    <img id="uploadedImage" src="" alt="" />
+  </div>
   <script src="upload.js"></script>
 </body>
 </html>
