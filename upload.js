@@ -10,13 +10,12 @@ document.getElementById('uploadBtn').addEventListener('click', async () => {
   }
 
   status.textContent = 'Yükleniyor...';
-  previewContainer.innerHTML = ''; // Önceki görselleri temizle
+  previewContainer.innerHTML = '';
 
   for (const file of files) {
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', 'photo-upload'); // kendi preset adını yaz
-
+    formData.append('upload_preset', 'photo-upload'); // preset adını sen verdin
     try {
       const response = await fetch('https://api.cloudinary.com/v1_1/dlgw466il/image/upload', {
         method: 'POST',
@@ -30,13 +29,14 @@ document.getElementById('uploadBtn').addEventListener('click', async () => {
       img.style.maxWidth = '200px';
       img.style.border = '1px solid #ccc';
       img.style.padding = '5px';
+      img.style.margin = '10px';
       previewContainer.appendChild(img);
 
     } catch (error) {
-      console.error(error);
-      status.textContent = '❌ Bazı yüklemeler başarısız oldu.';
+      console.error('Yükleme hatası:', error);
+      status.textContent = '❌ Bazı dosyalar yüklenirken hata oluştu.';
     }
   }
 
-  status.textContent = '✅ Yükleme tamamlandı!';
+  status.textContent = '✅ Tüm yüklemeler tamamlandı!';
 });
