@@ -1,7 +1,7 @@
 document.getElementById('uploadBtn').addEventListener('click', async () => {
   const fileInput = document.getElementById('fileInput');
   const status = document.getElementById('status');
-  const imagePreview = document.getElementById('uploadedImage');
+  const previewContainer = document.getElementById('imagePreview');
   const files = fileInput.files;
 
   if (!files.length) {
@@ -10,12 +10,12 @@ document.getElementById('uploadBtn').addEventListener('click', async () => {
   }
 
   status.textContent = 'Yükleniyor...';
-  imagePreview.innerHTML = '';
+  previewContainer.innerHTML = ''; // Önceki görselleri temizle
 
   for (const file of files) {
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', 'photo-upload'); // preset adını kendi adınla değiştir
+    formData.append('upload_preset', 'photo-upload'); // kendi preset adını yaz
 
     try {
       const response = await fetch('https://api.cloudinary.com/v1_1/dlgw466il/image/upload', {
@@ -24,13 +24,13 @@ document.getElementById('uploadBtn').addEventListener('click', async () => {
       });
 
       const data = await response.json();
-      console.log(data);
 
       const img = document.createElement('img');
       img.src = data.secure_url;
       img.style.maxWidth = '200px';
-      img.style.margin = '10px';
-      imagePreview.appendChild(img);
+      img.style.border = '1px solid #ccc';
+      img.style.padding = '5px';
+      previewContainer.appendChild(img);
 
     } catch (error) {
       console.error(error);
@@ -38,5 +38,5 @@ document.getElementById('uploadBtn').addEventListener('click', async () => {
     }
   }
 
-  status.textContent = '✅ Tüm yüklemeler tamamlandı!';
+  status.textContent = '✅ Yükleme tamamlandı!';
 });
