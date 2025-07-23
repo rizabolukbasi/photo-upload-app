@@ -3,19 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fotoğraf Yükleme</title>
-
-  <!-- Firebase SDK'ları -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+  <title>Cloudinary Fotoğraf Yükleme</title>
 </head>
 <body>
   <h2>Fotoğraf Yükle</h2>
   <input type="file" id="fileInput" accept="image/*" />
   <button id="uploadBtn">Yükle</button>
   <p id="status"></p>
+  <img id="uploadedImage" src="" style="max-width: 300px; margin-top: 20px;" />
 
-  <script src="firebase.js"></script>
   <script src="upload.js"></script>
 </body>
 </html>
