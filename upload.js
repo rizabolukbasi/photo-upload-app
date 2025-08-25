@@ -1,38 +1,32 @@
-const cloudName = "dlgw466il";  
-const uploadPreset = "photo-upload";
-
-document.getElementById("uploadBtn").addEventListener("click", async () => {
-  const files = document.getElementById("fileInput").files;
+async function uploadImage() {
+  const fileInput = document.getElementById("fileInput");
   const status = document.getElementById("status");
 
-  if (!files.length) {
-    status.innerText = "Lütfen en az bir fotoğraf seçin.";
+  if (!fileInput.files.length) {
+    status.innerText = "Lütfen en az 1 fotoğraf seçin.";
     return;
   }
 
-  status.innerText = "Fotoğraflar yükleniyor...";
+  status.innerText = "Yükleniyor...";
 
-  for (let i = 0; i < files.length; i++) {
-    const file = files[i];
+  for (let file of fileInput.files) {
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", uploadPreset);
+    formData.append("upload_preset", "photo-upload"); // Buraya kendi Cloudinary preset'ini yaz
+    formData.append("cloud_name", "dlgw466il"); // Buraya kendi Cloudinary hesabını yaz
 
     try {
-      const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+      const response = await fetch("https://api.cloudinary.com/v1_1/senin_cloud_name/image/upload", {
         method: "POST",
         body: formData
       });
 
-      const data = await res.json();
-      console.log("Yüklendi:", data.secure_url);
-
-    } catch (err) {
-      console.error("Hata:", err);
-      status.innerText = "Bir hata oluştu. Tekrar deneyin.";
-      return;
+      const data = await response.json();
+      console.log("Yükleme başarılı:", data.secure_url);
+      status.innerText = "Fotoğraf(lar) başarıyla yüklendi 🎉";
+    } catch (error) {
+      console.error("Hata:", error);
+      status.innerText = "Yükleme sırasında bir hata oluştu!";
     }
   }
-
-  status.innerText = "✅ Fotoğraflar başarıyla yüklendi!";
-});
+}
