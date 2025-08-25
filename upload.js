@@ -1,40 +1,38 @@
-document.getElementById('uploadBtn').addEventListener('click', async () => {
-  const fileInput = document.getElementById('fileInput');
-  const status = document.getElementById('status');
-  const gallery = document.getElementById('gallery');
-  const files = fileInput.files;
+const cloudName = "dlgw466il";  
+const uploadPreset = "photo-upload";
+
+document.getElementById("uploadBtn").addEventListener("click", async () => {
+  const files = document.getElementById("fileInput").files;
+  const status = document.getElementById("status");
 
   if (!files.length) {
-    status.textContent = 'Lütfen en az bir dosya seçin.';
+    status.innerText = "Lütfen en az bir fotoğraf seçin.";
     return;
   }
 
-  status.textContent = 'Yükleniyor...';
-  gallery.innerHTML = ''; // eski fotoğrafları temizle
+  status.innerText = "Fotoğraflar yükleniyor...";
 
-  for (const file of files) {
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
     const formData = new FormData();
-    formData.append('file', file);
-    formData.append('upload_preset', 'photo-upload');
+    formData.append("file", file);
+    formData.append("upload_preset", uploadPreset);
 
     try {
-      const response = await fetch('https://api.cloudinary.com/v1_1/dlgw466il/image/upload', {
-        method: 'POST',
+      const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+        method: "POST",
         body: formData
       });
-      const data = await response.json();
 
-      // Yüklenen fotoğrafı galeriye ekle
-      const img = document.createElement('img');
-      img.src = data.secure_url;
-      img.className = 'uploadedImage';
-      gallery.appendChild(img);
+      const data = await res.json();
+      console.log("Yüklendi:", data.secure_url);
 
-    } catch (error) {
-      console.error(error);
-      status.textContent = '❌ Yükleme sırasında hata oluştu.';
+    } catch (err) {
+      console.error("Hata:", err);
+      status.innerText = "Bir hata oluştu. Tekrar deneyin.";
+      return;
     }
   }
 
-  status.textContent = '✅ Yükleme tamamlandı!';
+  status.innerText = "✅ Fotoğraflar başarıyla yüklendi!";
 });
