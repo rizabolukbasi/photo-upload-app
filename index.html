@@ -3,88 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mehtap'ın Kınası</title>
+  <title>Mehtap'ın Kınasına Hoş Geldiniz</title>
   <style>
-    body, html {
+    body {
       margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: Arial, sans-serif;
       color: white;
       text-align: center;
-    }
-
-    /* Arka plan resmi blur + karartma */
-    .background {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: url("https://github.com/rizabolukbasi/photo-upload-app/blob/main/arkaplan.jpg") no-repeat center center;
+      background: url("images/bg.jpg") no-repeat center center fixed;
       background-size: cover;
-      filter: blur(8px) brightness(0.5);
-      z-index: -2;
     }
 
-    /* Overlay (arka planın üstüne yarı saydam katman) */
     .overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: -1;
-    }
-
-    .content {
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.5em;
       margin-bottom: 20px;
     }
 
     .upload-box {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.2);
       padding: 20px;
-      border-radius: 12px;
-      display: inline-block;
+      border-radius: 15px;
+      backdrop-filter: blur(5px);
     }
 
     input[type="file"] {
-      margin: 10px 0;
+      margin-top: 10px;
+      margin-bottom: 20px;
     }
 
     button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      background-color: #ff6699;
+      background: #ff4d6d;
       color: white;
-      font-size: 1rem;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 8px;
       cursor: pointer;
+      transition: background 0.3s;
     }
 
     button:hover {
-      background-color: #ff3366;
+      background: #e63e5f;
+    }
+
+    .status {
+      margin-top: 15px;
+      font-size: 1.2em;
     }
   </style>
 </head>
 <body>
-  <div class="background"></div>
-  <div class="overlay"></div>
-
-  <div class="content">
-    <h1>🌸 Mehtap'ın Kınasına Hoş Geldiniz 🌸</h1>
-
+  <div class="overlay">
+    <h1>Mehtap'ın Kınasına Hoş Geldiniz 💖</h1>
     <div class="upload-box">
-      <p>Buradan fotoğraflarınızı yükleyebilirsiniz 📸</p>
-      <input type="file" id="file-input" multiple>
-      <button onclick="uploadFiles()">Yükle</button>
-      <div id="status"></div>
+      <input type="file" id="fileInput" multiple>
+      <br>
+      <button onclick="uploadImage()">Yükle</button>
+      <div class="status" id="status"></div>
     </div>
   </div>
 
