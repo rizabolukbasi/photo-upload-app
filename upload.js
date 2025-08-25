@@ -16,7 +16,7 @@ async function uploadImage() {
     formData.append("cloud_name", "dlgw466il"); // Buraya kendi Cloudinary hesabını yaz
 
     try {
-      const response = await fetch("https://api.cloudinary.com/v1_1/senin_cloud_name/image/upload", {
+      const response = await fetch("https://api.cloudinary.com/v1_1/dlgw466il/image/upload", {
         method: "POST",
         body: formData
       });
